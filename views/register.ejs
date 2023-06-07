@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Signup Page</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<section class="vh-100" style="background-color: #ccd2dd;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                <form action="/user/register" method="POST">
+                  <h3 class="mb-5">Sign Up</h3>
+      
+                  <div class="form-outline mb-4">
+                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" />
+                    
+                  </div>
+      
+                  <div class="form-outline mb-4">
+                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" />
+                    
+                  </div>
+                  <% if(errors != null && errors.length > 0) { %>
+                    <% for(let i = 0; i < errors.length; i++) { %>
+                        <p class="alert alert-danger">
+                            <%= errors[i] %>
+                        </p>
+                    <% } %>
+                <% } %>
+      
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Sign up</button>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+</body>
+</html>

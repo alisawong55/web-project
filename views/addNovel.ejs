@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<section class="vh-100" style="background-color: #ccd2dd;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+
+                  <form action="/admin/add/submit" method="POST" enctype="multipart/form-data">
+                  <h3 class="mb-5">เพิ่มนิยาย</h3>
+      
+                  <div class="form-group">
+                    <label for="">ชื่อเรื่อง</label>
+                    <input type="text" name="title" class="form-control" />  
+                  </div>
+      
+                  <div class="form-group">
+                    <label for="">ผู้แต่ง</label>
+                    <input type="text" name="author" class="form-control" />  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">ผู้แปล</label>
+                    <input type="text" name="translator" class="form-control" />  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">รูปปก</label>
+                    <input type="file" name="image" class="form-control" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">หมวดหมู่</label>
+                    <input type="text" name="category" class="form-control" />                  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">รายละเอียด</label>
+                    <textarea name="detail" cols="30" rows="5" class="form-control"></textarea>
+                  </div>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">เพิ่ม</button>
+                </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+</body>
+</html>

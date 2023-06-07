@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>edit</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<section class="vh-100" style="background-color: #ccd2dd;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+
+                  <form action="/admin/edit/<%= data.id%>" method="post" enctype="multipart/form-data">
+                  <h3 class="mb-5">แก้ไขนิยาย</h3>
+      
+                  <div class="form-group">
+                    <label for="">ชื่อเรื่อง</label>
+                    <input type="text" id="title" value="<%= data.title%>" name="title" class="form-control" />  
+                  </div>
+      
+                  <div class="form-group">
+                    <label for="">ผู้แต่ง</label>
+                    <input type="text" id="author" value="<%= data.author%>" name="author" class="form-control" />  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">ผู้แปล</label>
+                    <input type="text" id="translator" value="<%= data.translator%>" name="translator" class="form-control" />  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">รูปปก</label>
+                    <input type="file" id="image" value="<%= data.image%>" name="image" class="form-control" />  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">หมวดหมู่</label>
+                    <input type="text" id="category" value="<%= data.catagory%>" name="category" class="form-control" />                  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">รายละเอียด</label>
+                    <textarea id="detail" name="detail" cols="30" rows="5" class="form-control"><%= data.detail%></textarea>
+                  </div>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">บันทึก</button>
+                </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0 text-uppercase text-primary">Novel collection</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 me-n3">
+                <a href="/index" class="nav-item nav-link">Home</a>
+                <a href="/collection" class="nav-item nav-link active">Collection</a>
+                <a href="/profile" class="nav-item nav-link">Profile</a>
+                <% if (loggedIn) { %>
+                    <a class="nav-item nav-link" href="/logout">Logout</a>
+                <% } %>
+        
+                <% if (!loggedIn) { %>
+                    <a class="nav-item nav-link" href="/login">Log in</a>
+                    <a class="nav-item nav-link" href="/register">Sign Up</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- detail -->
+    <div class="d-flex justify-content-center">
+        <form action="/collection/search" method="get" id="form">
+            <input class="p-1" type="search" id="query" name="query" placeholder="Search...">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+        <a class="mx-5 btn btn-secondary align-items-end" href="/user/request">request</a>
+    </div>
+    <div>
+
+    </div>
+
+
+    <!-- collection-->
+    
+    <!-- detail -->
+    <!--<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">title</th>
+            <th scope="col">author</th>
+            <th scope="col">translator</th>
+            <th scope="col">category</th>
+            <th scope="col">detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(data.length){
+         
+          for(var i = 0; i< data.length; i++) {%>  
+          <tr>
+            <th scope="row"><%= (i+1) %></th>
+            <td><%= data[i].title%></td>
+            <td><%= data[i].author%></td>
+            <td><%= data[i].translator%></td>
+            <td><%= data[i].category%></td>
+            <td><%= data[i].detail%></td>
+          </tr>
+          <% }
+                   
+           }else{ %>
+               <tr>
+                  <td colspan="3">No data</td>
+               </tr>
+            <% } %>    
+          
+        </tbody>
+        </table>-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
+        <% if(data.length){
+         
+            for(var i = 0; i< data.length; i++) {%>  
+            
+            
+        <div class="col mb-5">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <div class="">
+                        <img src="uploads/<%= data[i].image%>" alt="Uploaded Image" width="200" height="auto">
+                        <p class="fw">ชื่อเรื่อง: <%= data[i].title%></h5>
+                        <p class="fw">ผู้แต่ง: <%= data[i].author%></h5>
+                        <p class="fw">ผู้แปล: <%= data[i].translator%></h5>
+                        <p class="fw">หมวดหมู่: <%= data[i].category%></h5>
+                        <p class="fw">รายละเอียด: <%= data[i].detail%></h5>
+                        
+                    </div>
+                </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/user/add/<%= data[i].id%>">Add to collection</a></div>
+                </div>
+            </div>
+        </div>
+        <% }
+    }else{ %>
+        <tr>
+           <td colspan="3">No data</td>
+        </tr>
+     <% } %>
+        </div>
+    </div>
+</section>
+    <!-- collection-->
+    <!-- Footer Start -->
+    
+    <div class="container-fluid bg-dark text-secondary text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <p class="m-0">&copy; <a class="text-secondary border-bottom" href="#">novel collection</p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script>
+    function popup() {
+        // Prevent the default behavior (navigation to a new page)
+        event.preventDefault();
+
+        // Create a new HTML element for the popup product page
+        const popup = document.createElement('div');
+        popup.classList.add('popup');
+
+        // Use AJAX to retrieve the product data and populate the popup product page
+        const productID = productButton.dataset.productID;
+        
+        popup.innerHTML = `
+        <h2>${data[i].title}</h2>
+        <img src="${data[i].image}">
+        <p>ผู้แต่ง${data[i].author}</p>
+        <p>ผู้แปล${data[i].translator}</p>
+        <p>หมวดหมู่${data[i].category}</p>
+        <p>รายละเอียด${data[i].detail}</p>
+        <button class="close-button">Close</button>
+      `
+
+        // Add the popup product page to the DOM
+        document.body.appendChild(popup);
+
+        // Position the popup product page in the center of the screen
+        popup.style.top = `${window.innerHeight/2 - popup.offsetHeight/2}px`;
+        popup.style.left = `${window.innerWidth/2 - popup.offsetWidth/2}px`;
+
+        // Add a close button to the popup product page
+        const closeButton = popup.querySelector('.close-button');
+        closeButton.addEventListener('click', function(event) {
+            // Remove the popup product page from the DOM
+            popup.remove();
+        });
+    };
+    </script>
+
+</body>
+
+</html>
